@@ -106,7 +106,7 @@ class Spel {
                     break;
             }
         }
-       window.setTimeout(this.vijandVerplaatsen(), 5000);
+       this.vijandVerplaatsen();
     }
 
 
