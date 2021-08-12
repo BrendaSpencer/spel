@@ -90,19 +90,19 @@ class Spel {
             switch (richting) {
                 case "naarBoven":
                     nieuweY -= 1;
-                    this.bewegenX(nieuweY, nieuweX, row, col);
+                    this.bewegen(nieuweY, nieuweX, row, col);
                     break;
                 case "naarBeneden":
                     nieuweY += 1;
-                    this.bewegenX(nieuweY, nieuweX, row, col);
+                    this.bewegen(nieuweY, nieuweX, row, col);
                     break;
                 case "naarLinks":
                     nieuweX -= 1;
-                    this.bewegenX(nieuweY, nieuweX, row, col);
+                    this.bewegen(nieuweY, nieuweX, row, col);
                     break;
                 case "naarRechts":
                     nieuweX += 1;
-                    this.bewegenX(nieuweY, nieuweX, row, col);
+                    this.bewegen(nieuweY, nieuweX, row, col);
                     break;
             }
         }
@@ -111,7 +111,7 @@ class Spel {
 
 
     // schattenjager verplaatsen
-    bewegenX(nieuweY, nieuweX, row, col) {
+    bewegen(nieuweY, nieuweX, row, col) {
         if (nieuweX >= 0 && nieuweX <= this.#kolommen) {
             this.grasChecken(this.#schattenjager, row, col, nieuweX, nieuweY)
             if (this.#spelitems[nieuweY][nieuweX].naam == "schat") {
