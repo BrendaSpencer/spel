@@ -74,7 +74,6 @@ class Spel {
             y = this.randomYcijfer();
         }
         this.#spelitems[y][x] = spelitem;
-
     }
 
 
@@ -107,7 +106,6 @@ class Spel {
                     break;
             }
         }
-       
     }
 
 
@@ -143,7 +141,6 @@ class Spel {
         if (this.#spelitems[nieuweRow][nieuweCol].naam == "gras") {
             this.#spelitems[row][col] = new Gras();
             this.#spelitems[nieuweRow][nieuweCol] = karakter;
-
         }
     }
 
@@ -167,7 +164,6 @@ class Spel {
         }
         this.grasChecken(this.#vijand, row, col, nieuweCol, nieuweRow)
         this.tonen(ouder)
-    
 }
 
     tonen(ouder) {
@@ -198,7 +194,6 @@ class Spel {
         }
         speelbord.classList.add("ouder")
         ouder.appendChild(speelbord)
-
     }
 }
 
