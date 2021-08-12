@@ -14,7 +14,7 @@ class Schattenjager {
    
  
     get gevondenSchatten(){
-        return this.#gevondenSchatten
+        return this.#gevondenSchatten;
     }
     get naam() {
         return this.#naam;

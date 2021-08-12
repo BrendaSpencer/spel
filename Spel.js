@@ -90,19 +90,19 @@ class Spel {
             switch (richting) {
                 case "naarBoven":
                     nieuweY -= 1;
-                    this.bewegen(nieuweY, nieuweX, row, col);
+                    this.bewegenX(nieuweY, nieuweX, row, col);
                     break;
                 case "naarBeneden":
                     nieuweY += 1;
-                    this.bewegen(nieuweY, nieuweX, row, col);
+                    this.bewegenX(nieuweY, nieuweX, row, col);
                     break;
                 case "naarLinks":
                     nieuweX -= 1;
-                    this.bewegen(nieuweY, nieuweX, row, col);
+                    this.bewegenX(nieuweY, nieuweX, row, col);
                     break;
                 case "naarRechts":
                     nieuweX += 1;
-                    this.bewegen(nieuweY, nieuweX, row, col);
+                    this.bewegenX(nieuweY, nieuweX, row, col);
                     break;
             }
         }
@@ -111,7 +111,7 @@ class Spel {
 
 
     // schattenjager verplaatsen
-    bewegen(nieuweY, nieuweX, row, col) {
+    bewegenX(nieuweY, nieuweX, row, col) {
         if (nieuweX >= 0 && nieuweX <= this.#kolommen) {
             this.grasChecken(this.#schattenjager, row, col, nieuweX, nieuweY)
             if (this.#spelitems[nieuweY][nieuweX].naam == "schat") {
@@ -159,9 +159,7 @@ class Spel {
         const searchSchattenjager = this.#schattenjager;
         let rowSchattenjager = this.#spelitems.findIndex(row => row.includes(searchSchattenjager));
         let colSchattenjager = this.#spelitems[row].indexOf(searchSchattenjager);
-        if(this.#schattenjager.gevondenSchatten == this.#aantalSchatten){
-            return "gewonnen";
-        }else{
+       
         if (row == 0 || row < rowSchattenjager) {
             nieuweRow += 1;
         } else if (col == 0 || col < colSchattenjager) {
@@ -176,7 +174,7 @@ class Spel {
         }
         this.grasChecken(this.#vijand, row, col, nieuweCol, nieuweRow)
         this.tonen(ouder)
-    }
+    
 }
 
     tonen(ouder) {

@@ -6,6 +6,6 @@ class Gras {
 
     }
     get naam(){
-        return this.#naam
+        return this.#naam;
     }
 }
