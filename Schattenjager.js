@@ -26,11 +26,9 @@ class Schattenjager {
         return this.#levens;
     }
     set levens(aantal){
-        if(this.#levens <= 0){
-            return 'verloren';
-        }else{
+       
             this.#levens = aantal
-        }
+        
     }
 
     set winst(totaal){

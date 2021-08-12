@@ -27,9 +27,8 @@ class Spel {
     get schattenjager() {
         return this.#schattenjager
     }
-    get spelitems() {
-        return this.#spelitems
-    }
+    
+
 
     // bord vullen met gras
     bord() {
@@ -43,7 +42,7 @@ class Spel {
         return this.#spelitems;
     }
 
-    // muren maken en doorgeven naar de volgende methode
+    // muren maken en doorgeven 
     muurMaken(aantal) {
         for (let i = 0; i < aantal; i++) {
             let spelitem = new Muur();
@@ -51,7 +50,7 @@ class Spel {
         }
     }
 
-    // schatten maken en doorgeven naar de volgende methode
+    // schatten maken en doorgeven 
     schatMaken(aantal) {
         for (let i = 0; i < aantal; i++) {
             let spelitem = new Schat();
@@ -60,6 +59,13 @@ class Spel {
     }
 
     // schatten, muren, karakters toevoegen aan bord
+
+    randomYcijfer() {
+        return Math.floor(Math.random() * this.#rijen);
+    }
+    randomXcijfer() {
+        return Math.floor(Math.random() * this.#kolommen);
+    }
     itemtoevoegen(spelitem) {
         let x = this.randomXcijfer();
         let y = this.randomYcijfer();
@@ -71,12 +77,7 @@ class Spel {
 
     }
 
-    randomYcijfer() {
-        return Math.floor(Math.random() * this.#rijen);
-    }
-    randomXcijfer() {
-        return Math.floor(Math.random() * this.#kolommen);
-    }
+
 
     // schattenjager richting bepalen voor verplaatsen 
     bewegen(richting) {
@@ -106,7 +107,7 @@ class Spel {
                     break;
             }
         }
-       this.vijandVerplaatsen();
+       
     }
 
 
@@ -123,6 +124,7 @@ class Spel {
             if (this.#spelitems[nieuweY][nieuweX].naam == "vijand") {
                 this.levenVerwijderen()
             }
+            this.vijandVerplaatsen(row,col);
             this.tonen(ouder)
         }
     }
@@ -130,16 +132,11 @@ class Spel {
     schattenVerzamelen(totaal) {
         this.#schattenjager.winst += totaal;
         this.#schattenjager.schattenTellen();
-        if (this.#aantalSchatten == this.#schattenjager.gevondenSchatten) {
-            console.log('gewonnen')
-        }
     }
 
     levenVerwijderen() {
         this.#schattenjager.levensMinderen();
-        if (this.#schattenjager.levens == 0) {
-            console.log("VERLOREN");
-        };
+  
     }
 
     grasChecken(karakter, row, col, nieuweCol, nieuweRow) {
@@ -150,16 +147,12 @@ class Spel {
         }
     }
 
-    vijandVerplaatsen() {
+    vijandVerplaatsen(rowSchattenjager, colSchattenjager) {
         const search = this.#vijand;
         let row = this.#spelitems.findIndex(row => row.includes(search));
         let col = this.#spelitems[row].indexOf(search);
         let nieuweRow = row;
         let nieuweCol = col;
-        const searchSchattenjager = this.#schattenjager;
-        let rowSchattenjager = this.#spelitems.findIndex(row => row.includes(searchSchattenjager));
-        let colSchattenjager = this.#spelitems[row].indexOf(searchSchattenjager);
-       
         if (row == 0 || row < rowSchattenjager) {
             nieuweRow += 1;
         } else if (col == 0 || col < colSchattenjager) {
@@ -181,6 +174,7 @@ class Spel {
         while (ouder.lastChild !== null) {
             ouder.lastChild.remove();
         }
+        let uitslag = document.createElement('h2');
         let speelbord = document.createElement('div');
         let totaleWinst = document.createElement('h3');
         let aantalLevens = document.createElement('h3');
@@ -188,6 +182,13 @@ class Spel {
         aantalLevens.innerHTML = `aantal levens : ${this.#schattenjager.levens}`;
         ouder.appendChild(totaleWinst);
         ouder.appendChild(aantalLevens);
+        if(this.#schattenjager.levens == 0){
+            uitslag.innerHTML = "Spijtig Verloren!"
+            ouder.appendChild(uitslag);
+        }else if( this.#aantalSchatten == this.#schattenjager.gevondenSchatten){
+            uitslag.innerHTML = "Hoera Gewonnen!"
+            ouder.appendChild(uitslag);
+        }
         for (let elk of this.#spelitems) {
             for (let elke of elk) {
                 let kind = document.createElement("div");
