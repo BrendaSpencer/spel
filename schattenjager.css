@@ -1,0 +1,46 @@
+
+#spel{
+    text-align: center;
+}
+.ouder{
+    display: flex;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    background-color: lightgreen;
+}
+
+.schattenjager{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: darkgreen;
+}
+
+.vijand{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.schat{
+    width: 50px;
+    height: 50px;
+    border-radius: 15px;
+    background-color: gold;
+}
+
+.muur{
+    width: 50px;
+    height: 50px;
+    background-color: darkred;
+}
+
+.gras{
+    width: 50px;
+    height: 50px;
+    background-color: lightgreen;
+}
+
