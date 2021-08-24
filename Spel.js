@@ -1,13 +1,14 @@
 'use strict';
 
 class Spel {
-    #rijen;
-    #kolommen;
-    #schattenjager;
-    #vijand;
     #aantalMuren;
     #aantalSchatten;
-    #spelitems = []
+    #kolommen;
+    #rijen;
+    #schattenjager;
+    #vijand;
+    #spelitems = [];
+
     constructor(aantalMuren, aantalSchatten, kolommen, rijen) {
         this.#aantalMuren = aantalMuren;
         this.#aantalSchatten = aantalSchatten;
