@@ -178,7 +178,7 @@ class Spel {
         aantalLevens.innerHTML = `aantal levens : ${this.#schattenjager.levens}`;
         ouder.appendChild(totaleWinst);
         ouder.appendChild(aantalLevens);
-        if(this.#schattenjager.levens == 0){
+        if(this.#schattenjager.levens <= 0){
             uitslag.innerHTML = "Spijtig Verloren!"
             ouder.appendChild(uitslag);
         }else if( this.#aantalSchatten == this.#schattenjager.gevondenSchatten){

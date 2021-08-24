@@ -39,7 +39,11 @@ class Schattenjager {
         this.#gevondenSchatten = aantal;
     }
     levensMinderen(){
+        if(this.levens > 0){
         this.levens -= 1;
+    }else{
+        this.levens = 0;
+    }
     }
     schattenTellen(){
         this.gevondenSchatten += 1;
