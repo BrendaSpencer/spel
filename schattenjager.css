@@ -1,5 +1,5 @@
 
-#spel{
+body{
     text-align: center;
 }
 .ouder{
@@ -9,6 +9,7 @@
     height: 500px;
     margin: auto;
     background-color: lightgreen;
+    border: 2px darkred solid;
 }
 
 .schattenjager{
@@ -43,4 +44,14 @@
     height: 50px;
     background-color: lightgreen;
 }
+a {
+    background-color: lightgreen;
+    color :darkred;
+    padding: 15px;
+    text-decoration: none;
+    border: 2px darkred solid;
+    
+    
+   
 
+}
